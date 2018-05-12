@@ -5,13 +5,15 @@ services:
         restart: unless-stopped
         ports:
             - 5432:5432
-    pgexporter:
-        image: wrouesnel/postgres_exporter:latest
-        restart: unless-stopped
-        ports:
-            - 9187:9187
         environment:
-            - DATA_SOURCE_NAME=postgresql://postgres_exporter:password@pg:5432/postgres_exporter?sslmode=disable
+            - DATA_SOURCE_NAME=postgresql://postgres_exporter:password@127.0.0.1:5432/postgres_exporter?sslmode=disable
+#    pgexporter:
+#        image: wrouesnel/postgres_exporter:latest
+#        restart: unless-stopped
+#        ports:
+#            - 9187:9187
+#        environment:
+#            - DATA_SOURCE_NAME=postgresql://postgres_exporter:password@pg:5432/postgres_exporter?sslmode=disable
     pmm-server:
         image: percona/pmm-server:latest
         restart: unless-stopped

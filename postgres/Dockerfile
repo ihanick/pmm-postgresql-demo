@@ -26,7 +26,7 @@ RUN set -ex; \
 	rm -r "$GNUPGHOME"; \
 	apt-key list; \
 	echo 'deb https://repo.percona.com/apt stretch main' > /etc/apt/sources.list.d/percona.list; \
-	apt-get update && apt-get install -y pmm-client; \
+	apt-get update && apt-get install -y pmm-client curl; \
 	apt-get remove --purge -y gnupg apt-transport-https; \
 	apt-get autoremove -y --purge; \
 	rm -rf /var/lib/apt/lists/* \
@@ -34,3 +34,8 @@ RUN set -ex; \
 
 COPY init.sql /docker-entrypoint-initdb.d/
 COPY initpmm.sh /root/
+COPY postgres_exporter /postgres_exporter
+COPY entrypoint.sh /entrypoint.sh
+#ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["postgres"]
