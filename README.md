@@ -1,4 +1,4 @@
-This is a simplified example for PMM and Postgresql usage.
+This is an example for Postgress and Percona PMM, multiple postgres_exporter processses monitored from single pmm-client host
 
 ```sh
 git clone -b automated https://github.com/ihanick/pmm-postgresql-demo.git
