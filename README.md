@@ -1,7 +1,7 @@
 This is an example for Postgress and Percona PMM, multiple postgres_exporter processses monitored from single pmm-client host
 
 ```sh
-git clone -b automated https://github.com/ihanick/pmm-postgresql-demo.git
+git clone -b multi_pgexporters https://github.com/ihanick/pmm-postgresql-demo.git
 cd pmm-postgresql-demo
 docker-compose pull
 docker-compose build
